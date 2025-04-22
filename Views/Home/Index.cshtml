@@ -1,0 +1,142 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+<!-- إنشاء هيكل الصفحة -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>مركز التجميل - غزّة</title>
+    <link rel="stylesheet" href="~/css/Home.css" />
+  </head>
+  <body>
+    <!-- Header Section -->
+    <!-- يحتوي على شعار المركز وروابط التنقل -->
+    <header>
+      <!-- القائمة المنسدلة وتسجيل وتسجيل دخول على اليسار -->
+      <div class="left-section">
+        <div class="hamburger" onclick="toggleMenu()">☰</div>
+        <div class="left-links">
+            @if (User.Identity.IsAuthenticated)
+                   {
+
+                                <form asp-controller="Account" asp-action="Logout" method="post">
+                                    <button type="submit" class="btn btn-link nav-link">Logout</button>
+                                </form>
+                
+                        }
+            else
+                        {
+
+                                 <a href="@Url.Action("Login","Account")">تسجيل دخول</a>
+                         <a href="@Url.Action("Register","Account")">تسجيل جديد</a>
+                        }
+
+ 
+        </div>
+      </div>
+
+      <!-- الروابط في المنتصف -->
+      <nav>
+        <ul id="nav-menu">
+          <li><a href="#cart">سلّة المشتريات</a></li>
+          <li><a href="products.html">مُـنتجاتنا</a></li>
+          <li><a href="#about">!من نحنُ</a></li>
+          <li><a href="#home">الصفحة الرئيسية</a></li>
+        </ul>
+      </nav>
+
+      <!-- اللوجو على اليمين -->
+      <div class="logo">Beauty Center</div>
+    </header>
+
+    <!-- Hero Section -->
+    <!-- يعرض اسم المركز، وصف مختصر فقط -->
+    <section id="home" class="hero">
+      <h1>مركز التجميل - جمالُكِ هويّتنا</h1>
+      <p>نساعدكِ على العناية بجمالكِ بأحدث التقنيات والمنتجات</p>
+    </section>
+
+    <!-- About Us Section -->
+    <!-- يعرض معلومات عن المركز -->
+    <section id="about" class="about-us">
+      <h2>!من نحنُ</h2>
+      <p>!اكتشفي أفضل مُنتجات التجميل والعناية في مركزنا</p>
+      <p>
+        ،نحنُ نُقدّم لكِ مجموعة مُختارة بعناية من مُنتجات العناية بالبشرة والشعر
+        وغيرها التي تمنحُكِ نتائج مثاليّة في كُلّ استخدام
+      </p>
+      <p>
+        .سواء كنتِ تبحثين عن مُرطبات للبشرة، شامبو للشعر، أو منتجات مكياج، نحنُ
+        نوّفر لكِ أفضل الخيارات لتلبية احتياجاتكِ الجماليّة
+      </p>
+    </section>
+
+    <!-- Reviews Section -->
+    <!-- يعرض تقييمات العملاء -->
+    <section class="reviews">
+      <h2>آراء عملائنا</h2>
+      <div class="review-cards">
+        <div class="review">
+          <img src="Img/سارة.jpg" alt="عميل 1" />
+          <p>خدمة ممتازة وتجارب رائعة</p>
+          <p>- سارة -</p>
+        </div>
+        <div class="review">
+          <img src="Img/أحمد.jpg" alt="عميل 2" />
+          <p>أفضل مركز تجميل في المنطقة! سأحرص على إخبار الجميع عنكم</p>
+          <p>- أحمد -</p>
+        </div>
+        <div class="review">
+          <img src="Img/ليلى.jpg" alt="عميل 3" />
+          <p>تجربة لا تنسى، شكراً لكم</p>
+          <p>- ليلى -</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- قسم الأسئلة الشائعة -->
+    <section class="faq">
+      <h2>الأسئلة الشائعة</h2>
+      <div class="faq-list">
+        <div class="faq-item">
+          <h3>ما هي المُنتجات التي تقدّمونها؟</h3>
+          <p>نقدّم خدمات العناية بالبشرة، تصفيف الشعر، والمكياج</p>
+        </div>
+        <div class="faq-item">
+          <h3>كيف يمكنني طلب مُنتج؟</h3>
+          <p>يمكنك عبر الموقع أو الاتصال بنا مباشرة</p>
+        </div>
+        <div class="faq-item">
+          <h3>هل تقدمون خصومات للعملاء الجدد؟</h3>
+          <p>نعم، نقدم خصم 10% للعملاء الجدد على أول مُنتج</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer Section -->
+    <!-- تذييل الصفحة يحتوي على حقوق النشر والتواصل -->
+
+    <footer>
+      <div class="footer-content">
+        <p>:تواصل معنا</p>
+        <div class="social-icons">
+          <a href="https://www.instagram.com" target="_blank">
+            <img src="Img/instagram.png" alt="Instagram" />
+          </a>
+          <a href="https://wa.me/رقم_الهاتف" target="_blank">
+            <img src="Img/Whatsapp.png" alt="WhatsApp" />
+          </a>
+          <a href="https://www.facebook.com/اسم_الصفحة" target="_blank">
+            <img src="Img/facebook.png" alt="Facebook" />
+          </a>
+        </div>
+        <p>&copy; 2025 مركز التجميل. جميع الحقوق محفوظة</p>
+      </div>
+    </footer>
+
+    <!-- JavaScript File -->
+    <script src="~/js/script.js"></script>
+  </body>
+</html>

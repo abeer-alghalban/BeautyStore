@@ -1,0 +1,60 @@
+﻿@model BeautyStore.ViewModels.LoginViewModel
+@{
+    ViewData["Title"] = "تسجيل الدخول - مركز التجميل";
+}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>تسجيل جديد - مركز التجميل</title>
+    <link rel="stylesheet" href="~/css/Login.css" />
+    
+  </head>
+  <body>
+    <!-- Header Section -->
+    <!-- Header Section -->
+    <header>
+      <!-- الروابط على الشمال -->
+      <div class="left-links">
+        <a href="@Url.Action("Register","Account")">تسجيل جديد</a>
+        <a href="@Url.Action("Index","Home")">الصفحة الرئيسية</a>
+      </div>
+
+      <!-- اللوجو على اليمين -->
+      <div class="logo">Beauty Center</div>
+    </header>
+<section class="auth-form">
+    <h2>تسجيل الدخول</h2>
+    <form asp-action="Login" method="post">
+        <label asp-for="Email">:البريد الالكتروني</label>
+        <input asp-for="Email" type="text" id="email" name="email" required />
+
+        <label asp-for="Password">:كلمة المرور</label>
+        <input asp-for="Password" type="password" id="password" name="password" required />
+
+        <a href="#" class="forgot-password">نسيت كلمة المرور؟</a>
+        <a href="@Url.Action("Register","Account")">تسجيل دخول</a>
+        <button type="submit">تسجيل الدخول</button>
+    </form>
+</section>
+
+<footer>
+    <div class="footer-content">
+        <p>:تواصل معنا</p>
+        <div class="social-icons">
+            <a href="https://www.instagram.com" target="_blank">
+                <img src="~/Img/instagram.png" alt="Instagram" />
+            </a>
+            <a href="https://wa.me/رقم_الهاتف" target="_blank">
+                <img src="~/Img/Whatsapp.png" alt="WhatsApp" />
+            </a>
+            <a href="https://www.facebook.com/اسم_الصفحة" target="_blank">
+                <img src="~/Img/facebook.png" alt="Facebook" />
+            </a>
+        </div>
+        <p>&copy; 2025 مركز التجميل. جميع الحقوق محفوظة</p>
+    </div>
+</footer>
+</body>
+</html>

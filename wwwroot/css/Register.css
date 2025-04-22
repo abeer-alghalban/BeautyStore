@@ -1,0 +1,232 @@
+/* Page Login & Signup */
+
+.auth-form {
+    max-width: 400px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: right;
+}
+
+    .auth-form h2 {
+        font-size: 24px;
+        margin-bottom: 20px;
+        color: #ff6f61;
+        text-align: center;
+    }
+
+    .auth-form label {
+        display: block;
+        margin-bottom: 5px;
+        font-weight: bold;
+        text-align: right;
+    }
+
+    .auth-form input,
+    .auth-form select {
+        width: 100%;
+        padding: 10px 0;
+        margin-bottom: 15px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        font-size: 16px;
+        text-align: right;
+        direction: rtl;
+    }
+
+    .auth-form button {
+        width: 100%;
+        padding: 10px;
+        margin-top: 10px;
+        background-color: #ff6f61;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        font-size: 18px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+        text-align: center;
+    }
+
+        .auth-form button:hover {
+            background-color: #e65a50;
+        }
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="tel"] {
+    padding: 8px; /* ≈÷«›… „”«›… œ«Œ·Ì… */
+    width: 100%; /* ÷»ÿ «·⁄—÷ »ÕÌÀ ·« Ì Ã«Ê“ «·Õ«ÊÌ… */
+    box-sizing: border-box; /* Ì„‰⁄  „œœ «·’‰œÊﬁ »”»» «·‹ padding */
+    border: 1px solid #ccc; /*  Õ”Ì‰ ‘ﬂ· «·ÕœÊœ */
+    border-radius: 5px; /* “Ê«Ì« ‰«⁄„… */
+    font-size: 16px; /*  Õ”Ì‰ Ê÷ÊÕ «·‰’ */
+}
+
+.forgot-password {
+    display: block;
+    text-align: center;
+    margin-bottom: 10px;
+    color: #ff6f61;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+    .forgot-password:hover {
+        text-decoration: underline;
+    }
+
+.create-account {
+    display: block;
+    text-align: center;
+    margin: 10px 0; /* „”«›… ›Êﬁ Ê Õ  «·—«»ÿ */
+    color: #ff6f61;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+    .create-account:hover {
+        text-decoration: underline;
+    }
+
+#role {
+    padding-right: 10px; /* ≈“«Õ… «·”Â„ ··Ì„Ì‰ */
+    text-align: right; /* „Õ«–«… «·‰’ ··Ì„Ì‰ */
+    appearance: none; /* ≈“«·… «·”Â„ «·«› —«÷Ì */
+    background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path fill="black" d="M7 10l5 5 5-5z"/></svg>') no-repeat left center;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 100%;
+    box-sizing: border-box;
+    font-size: 15px;
+}
+
+/* Footer Styles */
+
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    margin-top: 50px;
+}
+
+.footer-content {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.social-icons {
+    margin: 15px 0;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    /* „”«›… »Ì‰ «·√ÌﬁÊ‰«  */
+}
+
+    .social-icons img {
+        width: 30px;
+        height: 30px;
+    }
+
+/* --------------------------------------------------------------------------------------- */
+
+/* «· ’„Ì„ ··‘«‘«  «·’€Ì—… */
+
+@media (max-width: 768px) {
+    header {
+        flex-direction: row; /* Ì»ﬁÏ «·ÂÌœ— √›ﬁÌ« */
+        align-items: center;
+    }
+
+        header .left-section {
+            display: flex;
+            align-items: center;
+            gap: 10px; /* „”«›… »Ì‰ «·⁄‰«’— */
+        }
+
+        header .left-links {
+            display: flex;
+            gap: 10px; /* „”«›… »Ì‰ «·—Ê«»ÿ */
+        }
+
+    .hamburger {
+        display: block; /* ÌŸÂ— ⁄·Ï «·‘«‘«  «·’€Ì—… */
+    }
+
+    header nav ul {
+        display: none; /* ÌŒ›Ì «·ﬁ«∆„… ⁄·Ï «·‘«‘«  «·’€Ì—… */
+        background-color: #ff6f61;
+        position: absolute;
+        top: 60px;
+        left: 20px; /* «·ﬁ«∆„…  ŸÂ— ⁄·Ï «·Ì”«— */
+        width: 200px;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        flex-direction: column;
+        padding: 15px;
+        /* „”«›… œ«Œ·Ì… ··ﬁ«∆„… */
+    }
+
+        header nav ul.active {
+            display: flex; /* ÌŸÂ— «·ﬁ«∆„… ⁄‰œ «·‰ﬁ— ⁄·Ï «·“— */
+        }
+
+    .hero h1 {
+        font-size: 36px;
+        /*  ’€Ì— ÕÃ„ «·⁄‰Ê«‰ */
+    }
+
+    .hero p {
+        font-size: 16px;
+        /*  ’€Ì— ÕÃ„ «·›ﬁ—… */
+    }
+
+    .hero {
+        padding: 50px 20px;
+        /*  ﬁ·Ì· «·Õ‘Ê… Ê«·„”«›… */
+    }
+
+    .about-us p {
+        max-width: 100%;
+        /* «·›ﬁ—… Â «Œœ «·⁄—÷ «·ﬂ«„· */
+    }
+
+    .reviews .review {
+        max-width: 100%;
+        /* «·»ÿ«ﬁ«  Â «Œœ «·⁄—÷ «·ﬂ«„· */
+    }
+
+    footer {
+        font-size: 14px;
+        /*  ’€Ì— ÕÃ„ «·Œÿ */
+    }
+
+    .social-icons a {
+        justify-content: center; /* Ì„—ﬂ“ «·‰’ Ê«·√ÌﬁÊ‰… */
+    }
+
+    .auth-form {
+        padding: 15px;
+        /*  ﬁ·Ì· «·Õ‘Ê… Ê«·„”«›… */
+    }
+
+        .auth-form h2 {
+            font-size: 20px;
+            /*  ’€Ì— ÕÃ„ «·Œÿ */
+        }
+
+        .auth-form input,
+        .auth-form select {
+            font-size: 14px;
+            /*  ’€Ì— ÕÃ„ «·Œÿ */
+        }
+
+        .auth-form button {
+            font-size: 16px;
+            /*  ’€Ì— ÕÃ„ «·Œÿ */
+        }
+}

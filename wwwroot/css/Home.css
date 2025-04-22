@@ -1,0 +1,324 @@
+/*  ‰”Ìﬁ «·’›Õ… Ê≈÷«›… «· ’„Ì„ */
+/* General Styles */
+/* Page 1 (Home) */
+
+body {
+    font-family: "Arial", sans-serif;
+    background-color: #f9f9f9;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    text-align: right;
+    line-height: 1.6;
+}
+
+/* Header Styles */
+header {
+    background-color: #ff6f61;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+    header .logo {
+        font-size: 24px;
+        font-weight: bold;
+        color: white;
+    }
+
+    header .left-section {
+        display: flex;
+        align-items: center;
+        gap: 20px; /* „”«›… »Ì‰ «·⁄‰«’— */
+    }
+
+    header .left-links {
+        display: flex;
+        gap: 20px; /* „”«›… »Ì‰ «·—Ê«»ÿ */
+    }
+
+        header .left-links a {
+            text-decoration: none;
+            color: white;
+            font-weight: bold;
+        }
+
+    header nav ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        gap: 20px; /* „”«›… »Ì‰ «·—Ê«»ÿ */
+    }
+
+        header nav ul li a {
+            text-decoration: none;
+            color: white;
+            font-weight: bold;
+        }
+
+/* √‰„«ÿ «·ﬁ«∆„… «·„‰”œ·… (Hamburger Menu) */
+.hamburger {
+    display: none; /* „Œ›Ì ⁄·Ï «·‘«‘«  «·ﬂ»Ì—… */
+    font-size: 24px;
+    color: white;
+    cursor: pointer;
+}
+
+/* ------------------------------------------------------------------------------------------- */
+
+/* Hero Section Styles */
+.hero {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../Img/background.jpg");
+    background-size: cover;
+    background-position: center;
+    color: white;
+    text-align: center;
+    padding: 100px 20px;
+}
+
+    .hero h1 {
+        font-size: 48px;
+        margin-bottom: 20px;
+    }
+
+    .hero p {
+        font-size: 20px;
+        margin-bottom: 30px;
+    }
+
+/* ------------------------------------------------------------------------------------------- */
+
+/* About Us Section Styles */
+.about-us {
+    padding: 50px 20px;
+    text-align: center;
+    background-color: white;
+}
+
+    .about-us h2 {
+        font-size: 36px;
+        margin-bottom: 20px;
+        color: #ff6f61;
+    }
+
+    .about-us p {
+        font-size: 18px;
+        max-width: 800px;
+        margin: 0 auto;
+    }
+
+/* ------------------------------------------------------------------------------------------- */
+
+/* Reviews Section Styles */
+
+.reviews {
+    padding: 50px 20px;
+    text-align: center;
+    background-color: #f4f4f4;
+}
+
+.review-cards {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.review {
+    width: 30%;
+    margin: 10px;
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* ≈÷«›… «‰ ﬁ«· ”·” */
+}
+
+    .review:hover {
+        background-color: #ff6f61; /* ·Ê‰ «·ÂÌœ— */
+        transform: scale(1.05); /*  ﬂ»Ì— «·’‰œÊﬁ */
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.2); /* “Ì«œ… «·Ÿ· */
+    }
+
+    .review img {
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        margin-bottom: 10px;
+        object-fit: cover;
+    }
+
+    .review p {
+        font-size: 16px;
+        color: #333;
+    }
+
+    .review:hover p {
+        color: white; /*  €ÌÌ— ·Ê‰ «·‰’ ≈·Ï «·√»Ì÷ */
+    }
+
+.reviews h2 {
+    font-size: 40px;
+    color: #ff6f61;
+}
+
+/* ------------------------------------------------------------------------------------------- */
+
+/* ﬁ”„ «·√”∆·… «·‘«∆⁄… */
+.faq {
+    padding: 50px 20px;
+    text-align: center;
+    background-color: #f4f4f4;
+}
+
+.faq-list {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: right;
+}
+
+.faq-item {
+    background-color: white;
+    padding: 20px;
+    margin: 10px 0;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* ≈÷«›… «‰ ﬁ«· ”·” */
+}
+
+    .faq-item:hover {
+        background-color: #ff6f61; /* ·Ê‰ «·ÂÌœ— */
+        transform: scale(1.05); /*  ﬂ»Ì— «·’‰œÊﬁ */
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.2); /* “Ì«œ… «·Ÿ· */
+    }
+
+    .faq-item h3 {
+        font-size: 20px;
+        margin-bottom: 10px;
+        color: #ff6f61;
+    }
+
+.faq h2 {
+    font-size: 40px;
+    color: #ff6f61;
+}
+
+.faq-item p {
+    font-size: 16px;
+    color: #333;
+}
+
+.faq-item:hover h3,
+.faq-item:hover p {
+    color: white; /*  €ÌÌ— ·Ê‰ «·‰’ ≈·Ï «·√»Ì÷ */
+}
+
+/* ------------------------------------------------------------------------------------------- */
+
+/* Footer Styles */
+
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    margin-top: 50px;
+}
+
+.footer-content {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.social-icons {
+    margin: 15px 0;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    /* „”«›… »Ì‰ «·√ÌﬁÊ‰«  */
+}
+
+    .social-icons img {
+        width: 30px;
+        height: 30px;
+    }
+
+/* ----------------------------------------------------------------------------- */
+
+/* «· ’„Ì„ ··‘«‘«  «·’€Ì—… */
+
+@media (max-width: 768px) {
+    header {
+        flex-direction: row; /* Ì»ﬁÏ «·ÂÌœ— √›ﬁÌ« */
+        align-items: center;
+    }
+
+        header .left-section {
+            display: flex;
+            align-items: center;
+            gap: 10px; /* „”«›… »Ì‰ «·⁄‰«’— */
+        }
+
+        header .left-links {
+            display: flex;
+            gap: 10px; /* „”«›… »Ì‰ «·—Ê«»ÿ */
+        }
+
+    .hamburger {
+        display: block; /* ÌŸÂ— ⁄·Ï «·‘«‘«  «·’€Ì—… */
+    }
+
+    header nav ul {
+        display: none; /* ÌŒ›Ì «·ﬁ«∆„… ⁄·Ï «·‘«‘«  «·’€Ì—… */
+        background-color: #ff6f61;
+        position: absolute;
+        top: 60px;
+        left: 20px; /* «·ﬁ«∆„…  ŸÂ— ⁄·Ï «·Ì”«— */
+        width: 200px;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        flex-direction: column;
+        padding: 15px;
+        /* „”«›… œ«Œ·Ì… ··ﬁ«∆„… */
+    }
+
+        header nav ul.active {
+            display: flex; /* ÌŸÂ— «·ﬁ«∆„… ⁄‰œ «·‰ﬁ— ⁄·Ï «·“— */
+        }
+
+    .hero h1 {
+        font-size: 36px;
+        /*  ’€Ì— ÕÃ„ «·⁄‰Ê«‰ */
+    }
+
+    .hero p {
+        font-size: 16px;
+        /*  ’€Ì— ÕÃ„ «·›ﬁ—… */
+    }
+
+    .hero {
+        padding: 50px 20px;
+        /*  ﬁ·Ì· «·Õ‘Ê… Ê«·„”«›… */
+    }
+
+    .about-us p {
+        max-width: 100%;
+        /* «·›ﬁ—… Â «Œœ «·⁄—÷ «·ﬂ«„· */
+    }
+
+    .reviews .review {
+        max-width: 100%;
+        /* «·»ÿ«ﬁ«  Â «Œœ «·⁄—÷ «·ﬂ«„· */
+    }
+
+    footer {
+        font-size: 14px;
+        /*  ’€Ì— ÕÃ„ «·Œÿ */
+    }
+
+    .social-icons a {
+        justify-content: center; /* Ì„—ﬂ“ «·‰’ Ê«·√ÌﬁÊ‰… */
+    }
+}
