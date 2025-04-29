@@ -13,43 +13,7 @@
   <body>
     <!-- Header Section -->
     <!-- يحتوي على شعار المركز وروابط التنقل -->
-    <header>
-      <!-- القائمة المنسدلة وتسجيل وتسجيل دخول على اليسار -->
-      <div class="left-section">
-        <div class="hamburger" onclick="toggleMenu()">☰</div>
-        <div class="left-links">
-            @if (User.Identity.IsAuthenticated)
-                   {
-
-                                <form asp-controller="Account" asp-action="Logout" method="post">
-                                    <button type="submit" class="btn btn-link nav-link">Logout</button>
-                                </form>
-                
-                        }
-            else
-                        {
-
-                                 <a href="@Url.Action("Login","Account")">تسجيل دخول</a>
-                         <a href="@Url.Action("Register","Account")">تسجيل جديد</a>
-                        }
-
  
-        </div>
-      </div>
-
-      <!-- الروابط في المنتصف -->
-      <nav>
-        <ul id="nav-menu">
-          <li><a href="#cart">سلّة المشتريات</a></li>
-          <li><a href="products.html">مُـنتجاتنا</a></li>
-          <li><a href="#about">!من نحنُ</a></li>
-          <li><a href="#home">الصفحة الرئيسية</a></li>
-        </ul>
-      </nav>
-
-      <!-- اللوجو على اليمين -->
-      <div class="logo">Beauty Center</div>
-    </header>
 
     <!-- Hero Section -->
     <!-- يعرض اسم المركز، وصف مختصر فقط -->
@@ -118,23 +82,7 @@
     <!-- Footer Section -->
     <!-- تذييل الصفحة يحتوي على حقوق النشر والتواصل -->
 
-    <footer>
-      <div class="footer-content">
-        <p>:تواصل معنا</p>
-        <div class="social-icons">
-          <a href="https://www.instagram.com" target="_blank">
-            <img src="Img/instagram.png" alt="Instagram" />
-          </a>
-          <a href="https://wa.me/رقم_الهاتف" target="_blank">
-            <img src="Img/Whatsapp.png" alt="WhatsApp" />
-          </a>
-          <a href="https://www.facebook.com/اسم_الصفحة" target="_blank">
-            <img src="Img/facebook.png" alt="Facebook" />
-          </a>
-        </div>
-        <p>&copy; 2025 مركز التجميل. جميع الحقوق محفوظة</p>
-      </div>
-    </footer>
+   
 
     <!-- JavaScript File -->
     <script src="~/js/script.js"></script>

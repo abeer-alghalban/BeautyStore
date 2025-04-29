@@ -2,48 +2,70 @@
 <html lang="en">
 <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - BeautyStore</title>
-    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
-    <link rel="stylesheet" href="~/BeautyStore.styles.css" asp-append-version="true" />
-</head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>مركز التجميل - غزّة</title>
+    <link rel="stylesheet" href="~/css/Home.css" />
+  </head>
 <body>
-    <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container-fluid">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">BeautyStore</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
+     <header>
+      <!-- القائمة المنسدلة وتسجيل وتسجيل دخول على اليسار -->
+      <div class="left-section">
+        <div class="hamburger" onclick="toggleMenu()">☰</div>
+        <div class="left-links">
+            @if (User.Identity.IsAuthenticated)
+                   {
+
+                      <form asp-controller="Account" asp-action="Logout" method="post">
+                      <button type="submit" class="btn btn-link nav-link">تسجيل خروج</button>
+                      </form>
+                
+                   }
+            else
+                   {
+
+                       <a href="@Url.Action("Login","Account")">تسجيل دخول</a>
+                       <a href="@Url.Action("Register","Account")">تسجيل جديد</a>
+                   }
+
+ 
+        </div>
+      </div>
+
+      <!-- الروابط في المنتصف -->
+      <nav>
+        <ul id="nav-menu">
+          <li><a href="index.html">الصفحة الرئيسية</a></li>
+          <li><a href="index.html#about">من نحنُ!</a></li>
+          <li><a href=="@Url.Action("Index","Product")">مُـنتجاتنا</a></li>
+          <li><a href="cart.html">سلّة المشتريات</a></li>
+        </ul>
+      </nav>
+
+      <!-- اللوجو على اليمين -->
+      <div class="logo">Beauty Center</div>
     </header>
     <div class="container">
         <main role="main" class="pb-3">
             @RenderBody()
         </main>
     </div>
-
-    <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2025 - BeautyStore - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+   <footer>
+      <div class="footer-content">
+        <p>:تواصل معنا</p>
+        <div class="social-icons">
+          <a href="https://www.instagram.com" target="_blank">
+            <img src="~/Img/instagram.png" alt="Instagram" />
+          </a>
+          <a href="https://wa.me/رقم_الهاتف" target="_blank">
+            <img src="~/Img/Whatsapp.png" alt="WhatsApp" />
+          </a>
+          <a href="https://www.facebook.com/اسم_الصفحة" target="_blank">
+            <img src="~/Img/facebook.png" alt="Facebook" />
+          </a>
         </div>
+        <p>&copy; 2025 مركز التجميل. جميع الحقوق محفوظة</p>
+      </div>
     </footer>
-    <script src="~/lib/jquery/dist/jquery.min.js"></script>
-    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="~/js/site.js" asp-append-version="true"></script>
-    @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>

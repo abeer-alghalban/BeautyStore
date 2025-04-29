@@ -1,7 +1,9 @@
 using BeautyStore.Data;
 using BeautyStore.Models;
+using BeautyStore.ViewModels;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using BeautyStore.Seeding;
 
 namespace BeautyStore
 {
@@ -30,6 +32,7 @@ namespace BeautyStore
             })
                 .AddEntityFrameworkStores<ApplicationDbContext>()
                 .AddDefaultTokenProviders();
+
             builder.Services.ConfigureApplicationCookie(options =>
             {
                 options.Cookie.HttpOnly = true;
@@ -59,7 +62,7 @@ namespace BeautyStore
                 name: "default",
                 pattern: "{controller=Home}/{action=Index}/{id?}");
 
-
+            // Add seeding logic
             using (var scope = app.Services.CreateScope())
             {
                 var services = scope.ServiceProvider;
@@ -70,13 +73,17 @@ namespace BeautyStore
                     var userManager = services.GetRequiredService<UserManager<ApplicationUser>>();
                     await InitialSetup.SeedRolesAsync(roleManager);
                     await InitialSetup.SeedAdminUserAsync(userManager);
+
+                    var context = services.GetRequiredService<ApplicationDbContext>();
+                    await ProductSeeder.SeedProducts(context);  // Ensure async seeding
                 }
                 catch (Exception ex)
                 {
                     var logger = loggerFactory.CreateLogger<Program>();
-                    logger.LogError(ex, "An error occure while seedign the database");
+                    logger.LogError(ex, "An error occurred while seeding the database");
                 }
             }
+
             app.Run();
         }
     }
