@@ -1,0 +1,46 @@
+﻿<section class="order-details">
+    <h2>رقم الطلب: @Model.Id</h2>
+    
+    <p><strong>اسم العميل:</strong> @Model.UserName</p>
+    <p><strong>البريد الإلكتروني:</strong> @Model.Email</p>
+    <p><strong>رقم الهاتف:</strong> @Model.Phone</p>
+    <p><strong>العنوان:</strong> @Model.Address</p>
+    
+    <p><strong>تاريخ الطلب:</strong> @Model.OrderDate.ToString("yyyy-MM-dd")</p>
+    <p><strong>الحالة:</strong> @Model.Status</p>
+    <p><strong>الإجمالي:</strong> @Model.TotalAmount.ToString("C")</p>
+
+    <h3>العناصر:</h3>
+    <table class="orders-table">
+        <thead>
+            <tr>
+                <th>المنتج</th>
+                <th>الكمية</th>
+                <th>السعر</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.OrderItems)
+            {
+                <tr>
+                    <td>@item.Product?.Name</td>
+                    <td>@item.Quantity</td>
+                    <td>@item.Price.ToString("C")</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    <!-- تحديث حالة الطلب -->
+    <form method="post" asp-action="UpdateOrderStatus">
+        <input type="hidden" name="id" value="@Model.Id" />
+        <input type="hidden" name="status" value="Completed" />
+        <button type="submit" class="edit-btn">إتمام الطلب</button>
+    </form>
+
+    <form method="post" asp-action="UpdateOrderStatus">
+        <input type="hidden" name="id" value="@Model.Id" />
+        <input type="hidden" name="status" value="Canceled" />
+        <button type="submit" class="delete-btn">إلغاء الطلب</button>
+    </form>
+</section>

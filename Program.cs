@@ -23,7 +23,7 @@ namespace BeautyStore
 
             builder.Services.AddIdentity<ApplicationUser, IdentityRole>(options =>
             {
-                options.SignIn.RequireConfirmedEmail = true;
+                options.SignIn.RequireConfirmedEmail = false;
                 options.SignIn.RequireConfirmedAccount = false;
                 options.Password.RequireLowercase = true;
                 options.Password.RequireUppercase = true;
@@ -53,6 +53,7 @@ namespace BeautyStore
             app.UseHttpsRedirection();
             app.UseStaticFiles();
 
+            app.UseStaticFiles();
             app.UseRouting();
 
             app.UseAuthentication();

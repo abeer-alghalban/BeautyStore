@@ -1,0 +1,138 @@
+/* تنسيقات النموذج */
+.form-section {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.form-group {
+  padding: 25px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: bold;
+  color: #2c3e50;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-family: "Tajawal", sans-serif;
+}
+
+.form-group textarea {
+  resize: vertical;
+}
+
+.image-preview {
+  width: 200px;
+  height: 200px;
+  margin-top: 10px;
+  border: 2px dashed #ddd;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.preview-icon {
+  font-size: 40px;
+  color: #ccc;
+  margin-bottom: 10px;
+}
+
+.image-preview p {
+  color: #888;
+  font-size: 14px;
+  text-align: center;
+}
+
+.preview-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: none;
+  text-align: center;
+}
+
+.remove-image-btn {
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  background: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  display: none;
+}
+
+.form-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 15px;
+  margin-top: 30px;
+}
+
+.cancel-btn {
+  background: #f0f0f0;
+  color: #333;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+  transition: background 0.3s;
+}
+
+.cancel-btn:hover {
+  background: #e0e0e0;
+}
+
+.submit-btn {
+  background: #ff6f61;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+  transition: background 0.3s;
+}
+
+.submit-btn:hover {
+  background: #e65a50;
+}
+
+/* ----------------------------------------------------------------------------------- */
+
+/* التجاوب مع الشاشات الصغيرة */
+@media (max-width: 768px) {
+  .form-section {
+    padding: 15px;
+  }
+
+  .image-preview {
+    width: 150px;
+    height: 150px;
+  }
+}

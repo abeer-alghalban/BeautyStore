@@ -1,0 +1,65 @@
+﻿@model BeautyStore.ViewModels.ProductViewModel
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>مُـنتجاتنا - مركز التجميل</title>
+    <link rel="stylesheet" href="~/css/Product.css" />
+  </head>
+  <body>
+    <!-- الهيدر -->
+
+    <!-- محتوى الصفحة -->
+    <section class="product-search">
+      <h1>المُنتجات</h1>
+      <div class="search-bar">
+        <form method="get" action="@Url.Action("Index", "Product")">
+            <div class="search-bar">
+                <input type="hidden" name="category" value="@ViewData["selectedCategory"]" />
+                <input type="text" name="searchQuery" placeholder="ابحث عن منتج..." value="@ViewData["searchQuery"]" />
+                <button type="submit">بحث</button>
+            </div>
+        </form>
+      </div>
+    </section>
+
+    <!-- قسم الفئات والمنتجات -->
+    <main class="products-container">
+      <div class="category-tabs">
+        <button class="tab-btn @(ViewData["selectedCategory"]?.ToString() == "بشرة" ? "active" : "")" 
+                onclick="window.location.href='@Url.Action("Index", "Product", new { category = "بشرة" })'">
+          العناية بالبشرة
+        </button>
+        <button class="tab-btn @(ViewData["selectedCategory"]?.ToString() == "شعر" ? "active" : "")" 
+                onclick="window.location.href='@Url.Action("Index", "Product", new { category = "شعر" })'">
+          العناية بالشعر
+        </button>
+      </div>
+
+      <!-- قسم عرض المنتجات حسب الفئة -->
+      <section class="product-category">
+        @foreach (var item in Model.Products)
+        {
+          <article class="product-item">
+            <img src="@item.ImageUrl" alt="@item.Name" class="product-img" />
+            <div class="product-details">
+              <h3 class="product-name">@item.Name</h3>
+              <p class="product-price">@item.Price</p>
+              <div class="product-actions">
+                <a href="@Url.Action("Details", "Product", new { id = item.Id })" class="details-btn">عرض المزيد</a>
+                <form method="post" asp-action="AddToCart" asp-controller="Order">
+                      <input type="hidden" name="productId" value="@item.Id" />
+                     <button type="submit" class="btn btn-primary">أضف إلى السلة</button>
+                </form>
+              </div>
+            </div>
+          </article>
+        }
+      </section>
+    </main>
+
+    <!-- الفوتر -->
+    <script src="~/js/products.js"></script>
+  </body>
+</html>

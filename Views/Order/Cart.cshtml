@@ -1,0 +1,72 @@
+﻿<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>سلّة المشتريات - مركز التجميل</title>
+    <link rel="stylesheet" href="~/css/Home.css" />
+    <link rel="stylesheet" href="~/css/cart.css" />
+  </head>
+  <body>
+    <!-- الهيدر -->
+    @if (TempData["Error"] != null)
+{
+    <div class="alert alert-danger">
+        @TempData["Error"]
+    </div>
+}
+   @model List<BeautyStore.Models.CartItem>
+
+<main class="cart-container">
+    <h1>سلّــة المشتريــات</h1>
+
+    <div class="cart-items">
+        @if (!Model.Any())
+        {
+            <div class="empty-cart-message">
+                <p>سلة المشتريات فارغة</p>
+                <a asp-controller="Product" asp-action="Index" class="browse-products">تصفح المنتجات</a>
+            </div>
+        }
+        else
+        {
+            foreach (var item in Model)
+            {
+                <div class="cart-item">
+                    <img src="@item.Product.ImageUrl" alt="@item.Product.Name" class="cart-item-img" />
+                    <div class="cart-item-details">
+                        <h3 class="cart-item-name">@item.Product.Name</h3>
+                        <p class="cart-item-price">السعر: @item.Product.Price شيكل</p>
+                        <p class="cart-item-qty">الكمية: @item.Quantity</p>
+                    </div>
+                </div>
+            }
+        }
+    </div>
+
+    @if (Model.Any())
+    {
+        <div class="cart-summary">
+            <h3>ملخص الطلب:</h3>
+            <div class="summary-row">
+                <span>المجموع:</span>
+                <span>@Model.Sum(c => c.Quantity * c.Product.Price) شيكل</span>
+            </div>
+
+            <div class="cart-actions">
+                <form method="post" asp-action="PlaceOrder">
+                    <button type="submit" class="checkout-btn">إتمام الشراء</button>
+                </form>
+            </div>
+        </div>
+    }
+</main>
+
+
+    <!-- الفوتر -->
+
+    <!-- JavaScript File -->
+    <!--<script src="~/js/index.js"></script>-->
+    <!--<script src="~/js/cart.js"></script>-->
+  </body>
+</html>

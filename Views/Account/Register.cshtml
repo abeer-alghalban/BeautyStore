@@ -16,10 +16,7 @@
     <!-- Header Section -->
     <header>
       <!-- الروابط على الشمال -->
-      <div class="left-links">
-        <a href="@Url.Action("Login","Account")">تسجيل دخول</a>
-        <a href="@Url.Action("Index","Home")">الصفحة الرئيسية</a>
-      </div>
+     
 
       <!-- اللوجو على اليمين -->
       <div class="logo">Beauty Center</div>
@@ -28,10 +25,10 @@
 <section class="auth-form">
     <h2>تسجيل جديد</h2>
     <form asp-action="Register" method="post">
-        <label asp-for="FirstName">:اسم المستخدم</label>
+        <label asp-for="FirstName">:الاسم الاول</label>
         <input asp-for="FirstName" type="text" id="FirstName" name="FirstName" required />
 
-          <label asp-for="LastName">:اسم المستخدم</label>
+          <label asp-for="LastName">:اسم العائلة</label>
         <input asp-for="LastName" type="text" id="LastName" name="LastName" required />
 
         <label asp-for="Email">:البريد الإلكتروني</label>
@@ -47,30 +44,18 @@
         <input asp-for="password"type="password" id="password" name="password" required />
 
         <label asp-for="ConfirmPassword">:تأكيد كلمة المرور</label>
-        <input asp-for="ConfirmPassword" type="password" id="confirm-password" name="confirm-password" required />
+        <input asp-for="ConfirmPassword" type="password" id="ConfirmPassword" name="ConfirmPassword" required />
 
        
 
         <button type="submit">تسجيل</button>
     </form>
+    @foreach (var error in ViewData.ModelState.Values.SelectMany(v => v.Errors))
+{
+    <div style="color:red; margin-top:5px;">@error.ErrorMessage</div>
+}
 </section>
 
-<footer>
-    <div class="footer-content">
-        <p>:تواصل معنا</p>
-        <div class="social-icons">
-            <a href="https://www.instagram.com" target="_blank">
-                <img src="~/Img/instagram.png" alt="Instagram" />
-            </a>
-            <a href="https://wa.me/رقم_الهاتف" target="_blank">
-                <img src="~/Img/Whatsapp.png" alt="WhatsApp" />
-            </a>
-            <a href="https://www.facebook.com/اسم_الصفحة" target="_blank">
-                <img src="~/Img/facebook.png" alt="Facebook" />
-            </a>
-        </div>
-        <p>&copy; 2025 مركز التجميل. جميع الحقوق محفوظة</p>
-    </div>
-</footer>
+
 </body>
 </html>

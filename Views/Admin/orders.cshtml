@@ -1,0 +1,75 @@
+﻿@model List<BeautyStore.Models.Order>
+
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>الطلبات - لوحة التحكم</title>
+  <link rel="stylesheet" href="~/css/admin.css" />
+</head>
+<body>
+  <div class="admin-container">
+    <aside class="sidebar">
+      <div>
+        <img src="~/img/logo.png" alt="شعار الموقع" class="logo" />
+      </div>
+      <nav>
+        <ul>
+          <li><a asp-controller="Admin" asp-action="Dashboard"><span>📊</span> التقارير</a></li>
+          <li><a href="products.html"><span>💄</span> المنتجات</a></li>
+          <li><a href="add-product.html"><span>➕</span> إضافة منتج</a></li>
+          <li class="active"><a asp-controller="Admin" asp-action="Orders"><span>🛒</span> الطلبات</a></li>
+        </ul>
+      </nav>
+    </aside>
+
+    <main class="main-content">
+      <header class="content-header">
+        <h1>إدارة الطلبات</h1>
+        <div class="admin-actions">
+          <span class="admin-name">مرحباً، آدمن</span>
+          <a href="~/" class="logout-btn">تسجيل خروج</a>
+        </div>
+      </header>
+
+      <section class="dashboard-sections">
+        <h3>قائمة الطلبات</h3>
+
+        @foreach (var order in Model)
+        {
+          <div class="product-card" style="padding: 20px;">
+            <div class="product-details">
+              <h3>طلب #@order.Id</h3>
+              <p><strong>العميل:</strong> @order.UserName</p>
+              <p><strong>تاريخ الطلب:</strong> @order.OrderDate.ToString("yyyy-MM-dd HH:mm")</p>
+              <p><strong>الحالة:</strong> 
+                <span style="color:@(order.Status == "Completed" ? "green" : order.Status == "Canceled" ? "red" : "orange")">
+                  @order.Status
+                </span>
+              </p>
+              <p><strong>المجموع:</strong> @order.TotalAmount شيكل</p>
+
+              <div class="product-actions" style="margin-top: 20px;">
+                <a class="edit-btn" asp-action="OrderDetails" asp-route-id="@order.Id">عرض التفاصيل</a>
+
+                <form method="post" asp-action="UpdateOrderStatus" style="display:inline;">
+                  <input type="hidden" name="id" value="@order.Id" />
+                  <input type="hidden" name="status" value="Completed" />
+                  <button type="submit" class="edit-btn">إتمام</button>
+                </form>
+
+                <form method="post" asp-action="UpdateOrderStatus" style="display:inline;">
+                  <input type="hidden" name="id" value="@order.Id" />
+                  <input type="hidden" name="status" value="Canceled" />
+                  <button type="submit" class="delete-btn">إلغاء</button>
+                </form>
+              </div>
+            </div>
+          </div>
+        }
+      </section>
+    </main>
+  </div>
+</body>
+</html>

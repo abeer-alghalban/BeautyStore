@@ -35,10 +35,10 @@
       <!-- الروابط في المنتصف -->
       <nav>
         <ul id="nav-menu">
-          <li><a href="index.html">الصفحة الرئيسية</a></li>
+          <li><a asp-controller="Home" asp-action="Index">الصفحة الرئيسية</a></li>
           <li><a href="index.html#about">من نحنُ!</a></li>
-          <li><a href=="@Url.Action("Index","Product")">مُـنتجاتنا</a></li>
-          <li><a href="cart.html">سلّة المشتريات</a></li>
+          <li><a asp-controller="Product" asp-action="Index">مُـنتجاتنا</a></li>
+          <li><a asp-controller="Order" asp-action="Cart">سلّة المشتريات</a></li>
         </ul>
       </nav>
 
